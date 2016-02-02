@@ -12,6 +12,7 @@ public class StringHelper {
 
     /**
      * Checks 2 words if they are anagrams.
+     *
      * @param s1 - first word
      * @param s2 - second word
      * @return {@code Boolean} true if they are anagrams, false otherwise
@@ -31,8 +32,9 @@ public class StringHelper {
 
     /**
      * Gets first anagram in list
+     *
      * @param words - List of words to check on anagrams
-     * @param str - checking word
+     * @param str   - checking word
      * @return {@code String} anagram word
      */
     public static String getAnagram(List<String> words, String str) {
@@ -44,14 +46,15 @@ public class StringHelper {
 
     /**
      * Get anagram words from List of words
+     *
      * @param words - list of words
      * @return {@code List<String>} anagrams pairs List, splitted with ' - '
      */
     public static List<String> getAnagramPairsList(List<String> words) {
         if (!isEmpty(words)) {
             List<String> results = new ArrayList<>(words.size());
-            for (int i =0; i < words.size() - 1; ++i) {
-                for (int j = i+1; j < words.size(); ++j) {
+            for (int i = 0; i < words.size() - 1; ++i) {
+                for (int j = i + 1; j < words.size(); ++j) {
                     if (isAnagram(words.get(i), words.get(j))) {
                         results.add(words.get(i) + " - " + words.get(j));
                     }
