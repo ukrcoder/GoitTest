@@ -19,7 +19,6 @@ public class StringHelperTest {
     private static final String WRONG_TEST_WORD1 = "123ASDAwen";
     private static final String WRONG_TEST_WORD2 = "wen   ";
 
-
     private List<String> words;
 
     @Before
@@ -31,13 +30,21 @@ public class StringHelperTest {
     public void testIsAnagram() throws Exception {
         assertTrue(isAnagram(TEST_WORD1, TEST_WORD2));
         assertFalse(isAnagram(TEST_WORD1, WRONG_TEST_WORD1));
-        assertFalse(isAnagram(TEST_WORD1, null));
+        assertFalse(isAnagram(TEST_WORD1, WRONG_TEST_WORD2));
+    }
+
+    @Test
+    public void shouldReturnFalseOnNullStrings() {
         assertFalse(isAnagram(null, TEST_WORD2));
+        assertFalse(isAnagram(TEST_WORD1, null));
+        assertFalse(isAnagram(null, null));
+    }
+
+    @Test
+    public void shouldReturnFalseOnEmptyStrings() {
         assertFalse(isAnagram(TEST_WORD1, ""));
         assertFalse(isAnagram("", TEST_WORD2));
-        assertFalse(isAnagram(null, null));
         assertFalse(isAnagram("", ""));
-        assertFalse(isAnagram(TEST_WORD1, WRONG_TEST_WORD2));
         assertFalse(isAnagram("", "        "));
     }
 
